@@ -1,0 +1,1200 @@
+# API pública de GameOffsets.dll (gerado por hud_api_dump.sh)
+# tipos: 140 | membros [Obsolete]: 1
+
+=== GameOffsets.ActiveAnimationOffsets ===
+  field float NormalAnimationSpeed
+  field float SlowAnimationSpeed
+  field int AnimationId
+  field long SlowAnimationEndStagePtr
+  field long SlowAnimationStartStagePtr
+
+=== GameOffsets.ActorAnimationListOffsets ===
+  field NativePtrArray AnimationList
+
+=== GameOffsets.ActorAnimationStageOffsets ===
+  field NativeUtf8Text StageName
+  field float StageStart
+  field int ActorAnimationListIndex
+
+=== GameOffsets.ActorComponentOffsets ===
+  field Int16 ActionId
+  field NativePtrArray ActorSkillsArray
+  field NativePtrArray ActorSkillsCooldownArray
+  field NativePtrArray ActorVaalSkills
+  field StdVector DeployedObjectArray
+  field int AnimationId
+  field long ActionPtr
+  field long AnimationControllerPtr
+
+=== GameOffsets.ActorDeployedObjectOffsets ===
+  field UInt16 ObjectType
+  field UInt16 SkillId
+  field UInt32 EntityId
+
+=== GameOffsets.ActorSkillCooldownOffsets ===
+  field StdVector Cooldowns
+  field UInt16 SkillId
+  field int MaxUses
+  field int SkillSubId
+
+=== GameOffsets.ActorSkillOffsets ===
+  field SubActorSkillOffsets SubData
+  field byte CastType
+  field byte SkillUseStage
+
+=== GameOffsets.AncestorShopWindowOffsets ===
+  field long ItemPtr
+  field long UnitPtr
+
+=== GameOffsets.AncestorSidePanelOffsets ===
+  field long ItemPtr
+  field long UnitPtr
+
+=== GameOffsets.AreaLoadingStateOffsets ===
+  field UInt32 TotalLoadingScreenTimeMs
+  field long AreaName
+  field long IsLoading
+
+=== GameOffsets.BaseComponentOffsets ===
+  field NativeUtf16Text PublicPrice
+  field byte Corrupted
+  field byte CurrencyItemLevel
+  field byte Influence
+  field int ScourgedTier
+  field int UnspentAbsorbedCorruption
+  field long ItemInfo
+
+=== GameOffsets.Buffer14`1 ===
+  method List`1<!0> AsList()
+
+=== GameOffsets.Buffer23`1 ===
+  method List`1<!0> AsList()
+
+=== GameOffsets.Buffer3`1 ===
+  method List`1<!0> AsList()
+
+=== GameOffsets.Buffer4`1 ===
+  method List`1<!0> AsList()
+
+=== GameOffsets.Buffer8`1 ===
+  method List`1<!0> AsList()
+
+=== GameOffsets.ChallengePanelOffsets ===
+  field int BestiaryTabCapturedBeastsTabOffset
+
+=== GameOffsets.ChestComponentOffsets ===
+  field byte IsLocked
+  field byte IsOpened
+  field byte IsStrongbox
+  field byte quality
+  field long StrongboxData
+
+=== GameOffsets.ComponentArrayStructure ===
+  field int Index
+  field int deadcode
+  field long NamePtr
+
+=== GameOffsets.ComponentLookUpStruct ===
+  field StdVector ComponentArray
+  field StdVector ComponentPrototypeArray
+  field long Capacity
+  field long Count
+
+=== GameOffsets.ComponentNameAndIndexStruct ===
+  field int Index
+  field int deadcode
+  field long NamePtr
+
+=== GameOffsets.Components.AreaTransitionComponentOffsets ===
+  field UInt16 AreaId
+  field byte TransitionType
+  field long WorldAreaInfoPtr
+
+=== GameOffsets.DatArrayStruct ===
+  field int Count
+  field long ItemArrayPtr
+
+=== GameOffsets.DefaultEnvironmentSettingsOffsets ===
+  field NativeUtf16Text Category
+  field NativeUtf16Text Name
+  field Vector3 Value
+  field int IndexInGroup
+
+=== GameOffsets.DiagnosticElementArrayOffsets ===
+  field float CurrValue
+
+=== GameOffsets.DiagnosticElementOffsets ===
+  field int Height
+  field int Width
+  field int X
+  field int Y
+  field long DiagnosticArray
+
+=== GameOffsets.ElementFlags ===
+  field ElementFlags Flag0
+  field ElementFlags Flag1
+  field ElementFlags Flag12
+  field ElementFlags Flag14
+  field ElementFlags Flag15
+  field ElementFlags Flag16
+  field ElementFlags Flag17
+  field ElementFlags Flag18
+  field ElementFlags Flag19
+  field ElementFlags Flag2
+  field ElementFlags Flag20
+  field ElementFlags Flag21
+  field ElementFlags Flag22
+  field ElementFlags Flag23
+  field ElementFlags Flag24
+  field ElementFlags Flag25
+  field ElementFlags Flag26
+  field ElementFlags Flag27
+  field ElementFlags Flag28
+  field ElementFlags Flag29
+  field ElementFlags Flag3
+  field ElementFlags Flag30
+  field ElementFlags Flag31
+  field ElementFlags Flag32
+  field ElementFlags Flag33
+  field ElementFlags Flag34
+  field ElementFlags Flag35
+  field ElementFlags Flag36
+  field ElementFlags Flag37
+  field ElementFlags Flag38
+  field ElementFlags Flag39
+  field ElementFlags Flag4
+  field ElementFlags Flag40
+  field ElementFlags Flag41
+  field ElementFlags Flag42
+  field ElementFlags Flag43
+  field ElementFlags Flag44
+  field ElementFlags Flag46
+  field ElementFlags Flag47
+  field ElementFlags Flag48
+  field ElementFlags Flag49
+  field ElementFlags Flag5
+  field ElementFlags Flag50
+  field ElementFlags Flag51
+  field ElementFlags Flag52
+  field ElementFlags Flag53
+  field ElementFlags Flag54
+  field ElementFlags Flag55
+  field ElementFlags Flag56
+  field ElementFlags Flag57
+  field ElementFlags Flag58
+  field ElementFlags Flag59
+  field ElementFlags Flag6
+  field ElementFlags Flag60
+  field ElementFlags Flag61
+  field ElementFlags Flag62
+  field ElementFlags Flag63
+  field ElementFlags Flag7
+  field ElementFlags Flag8
+  field ElementFlags Flag9
+  field ElementFlags IsActive
+  field ElementFlags IsSaturated
+  field ElementFlags IsScrollable
+  field ElementFlags IsVisibleLocal
+  field UInt64 value__
+
+=== GameOffsets.ElementOffsets ===
+  field ColorBGRA LabelBackgroundColor
+  field ColorBGRA LabelBorderColor
+  field ColorBGRA LabelTextColor
+  field ElementFlags Flags
+  field NativePtrArray Childs
+  field NativeUtf16Text Text
+  field NativeUtf16Text TextNoTags
+  field UInt16 Type
+  field Vector2 Position
+  field Vector2 ScrollOffset
+  field Vector2 Size
+  field byte LabelTextSize
+  field byte ShinyHighlightState
+  field float Scale
+  field int CursorInfoOffset2
+  field int OffsetBuffers
+  field long ChildEnd
+  field long ChildStart
+  field long CursorInfo
+  field long Parent
+  field long Root
+  field long SelfPointer
+  field long TextureNamePtr
+  field long Tooltip
+
+=== GameOffsets.EntityFlags ===
+  field EntityFlags Valid
+  field byte value__
+
+=== GameOffsets.EntityLabelMapOffsets ===
+  field int LabelOffset
+  field int LabelPtrOffset
+  field long EntityLabelMap
+
+=== GameOffsets.EntityListOffsets ===
+  field byte IsEmpty
+  field long Entity
+  field long FirstAddr
+  field long SecondAddr
+
+=== GameOffsets.EntityOffsets ===
+  field EntityFlags Flags
+  field ObjectHeaderOffsets Head
+  field StdVector ComponentList
+  field UInt32 Id
+  field long EntityDetailsPtr
+  method string ToString()
+
+=== GameOffsets.EnvironmentDataOffsets ===
+  field StdVector ActiveEnvironmentList
+  field StdVector DefaultSettingsList
+  field StdVector FootstepAudioList
+  field int FirstInlineValueListOffset
+  field int SecondInlineValueListOffset
+  field int Type10Count
+  field int Type10Offset
+  field int Type10Size
+  field int Type1Count
+  field int Type1Offset
+  field int Type1Size
+  field int Type2Count
+  field int Type2Offset
+  field int Type2Size
+  field int Type3Count
+  field int Type3Offset
+  field int Type3Size
+  field int Type4Count
+  field int Type4Offset
+  field int Type4Size
+  field int Type5Count
+  field int Type5Offset
+  field int Type5Size
+  field int Type6Count
+  field int Type6Offset
+  field int Type6Size
+  field int Type7Count
+  field int Type7Offset
+  field int Type7Size
+  field int Type8Count
+  field int Type8Offset
+  field int Type8Size
+  field int Type9Count
+  field int Type9Offset
+  field int Type9Size
+
+=== GameOffsets.EnvironmentOffsets ===
+  field UInt16 Key
+  field UInt16 Value0
+  field float Value1
+
+=== GameOffsets.EscapeStateOffsets ===
+  field UInt32 TotalActiveTimeMs
+  field byte IsUnpaused
+  field byte WasEverActive
+  field long HoveredElementPtr
+  field long UIRootPtr
+
+=== GameOffsets.GameConfigKeyValueOffsets ===
+  field NativeUtf16Text Key
+  field NativeUtf16Text Value
+
+=== GameOffsets.GameConfigOffsets ===
+  field StdMap ConfigMap
+
+=== GameOffsets.GameConfigSectionOffsets ===
+  field NativeUtf16Text SectionKey
+  field UnorderedMap SectionMap
+
+=== GameOffsets.GemInformation ===
+  field int LimitLevel
+  field int MaxLevel
+  field int SocketColor
+  field long SkillGemPtr
+
+=== GameOffsets.HarvestWorldObjectComponentOffsets ===
+  field StdVector Seeds
+
+=== GameOffsets.HeistBlueprintComponentOffsets ===
+  field NativePtrArray Wings
+  field byte AreaLevel
+  field byte IsConfirmed
+  field int JobRecordSize
+  field int NpcRecordSize
+  field int RoomRecordSize
+  field int WingRecordSize
+  field long Owner
+
+=== GameOffsets.HeistContractComponentOffsets ===
+  field NativePtrArray Crew
+  field NativePtrArray Requirements
+  field long ObjectiveKey
+  field long Owner
+
+=== GameOffsets.HeistContractObjectiveOffsets ===
+  field long ClientKey
+  field long TargetKey
+  field long Unknown1Key
+
+=== GameOffsets.HeistContractRequirementOffsets ===
+  field byte JobLevel
+  field long JobKey
+
+=== GameOffsets.HeistEquipmentComponentDataOffsets ===
+  field long HeistEquipmentKey
+
+=== GameOffsets.HeistEquipmentComponentOffsets ===
+  field long DataKey
+  field long OwnerKey
+
+=== GameOffsets.HeistEquipmentOffsets ===
+  field int RequiredJobMinimumLevel
+  field long BaseItemKey
+  field long RequiredJobKey
+
+=== GameOffsets.IngameDataOffsets ===
+  field NativePtrArray MapStats
+  field NativePtrArray MapStatsVisible
+  field NativePtrArray TgtArray
+  field StdVector AreaGraphs
+  field StdVector AzmeriDataArray1
+  field StdVector AzmeriDataArray2
+  field StdVector EffectEnvironments
+  field TerrainData Terrain
+  field UInt32 CurrentAreaHash
+  field Vector2 AzmeriZoneMaxBorder
+  field Vector2 AzmeriZoneMinBorder
+  field Vector2i AzmeriZoneTileDimensions
+  field byte CurrentAreaLevel
+  field byte IsInsideAzmeriZone
+  field int MillisecondsSpentInMapBeforeZoneIn
+  field long CurrentArea
+  field long EntitiesCount
+  field long EntityList
+  field long EnvironmentDataPtr
+  field long IngameStatePtr
+  field long IngameStatePtr2
+  field long LabDataPtr
+  field long LocalPlayer
+  field long ServerData
+  field long ZoneInQPC
+
+=== GameOffsets.InitObjectOffsets ===
+  field long ParentObjectPtr
+  field long vTable
+
+=== GameOffsets.InventoryOffsets ===
+  field Vector2i FakePos
+  field Vector2i InventorySize
+  field Vector2i RealPos
+  field int BlightServerInventoryOffset
+  field int ComplexStashFirstLevelServerInventoryOffset
+  field int ComplexStashSecondLevelServerInventoryOffset
+  field int CursorInInventory
+  field int DefaultServerInventoryOffset
+  field int DivinationServerInventoryOffset
+  field int ItemHoverState
+  field int ServerInventoryId
+  field long CursorPtr
+  field long HoverItem
+  field long ItemCount
+
+=== GameOffsets.ItemInfoOffsets ===
+  field NativeUtf16Text FlavourText
+  field NativeUtf16Text Name
+  field StdVector Tags
+  field byte ItemCellsSizeX
+  field byte ItemCellsSizeY
+  field long BaseItemType
+
+=== GameOffsets.ItemsOnGroundLabelElementOffsets ===
+  field StdVector VisibleItemLabels
+  field int FourthConfigOffset
+  field int SecondConfigOffset
+  field int ThirdConfigOffset
+  field long ConfigPtr
+  field long ItemOnHoverPtr
+  field long LabelCount
+  field long LabelCount2
+  field long LabelOnHoverPtr
+  field long LabelsOnGroundListPtr
+
+=== GameOffsets.LifeComponentOffsets ===
+  field VitalStruct EnergyShield
+  field VitalStruct Health
+  field VitalStruct Mana
+  field long Owner
+
+=== GameOffsets.MapComponentBase ===
+  field byte Tier
+  field long Base
+
+=== GameOffsets.MapComponentInner ===
+  field int MapSeries
+  field long Area
+
+=== GameOffsets.MapElement ===
+  field int BlueWordsOffset
+  field int LargeMapOffset
+  field int MapPropertiesOffset
+  field int OrangeWordsOffset
+  field int SmallMapOffset
+
+=== GameOffsets.MapSubElement ===
+  field int DefaultMapShift
+  field int MapShift
+  field int MapShiftX
+  field int MapShiftY
+  field int MapZoom
+
+=== GameOffsets.MinimapIconOffsets ===
+  field byte IsHide
+  field byte IsVisible
+  field long NamePtr
+
+=== GameOffsets.ModsComponentOffsets ===
+  field NativePtrArray GetSynthesizedStats
+  field NativePtrArray ScourgeMods
+  field NativePtrArray UniqueName
+  field NativePtrArray crucibleMods
+  field NativePtrArray enchantMods
+  field NativePtrArray explicitMods
+  field NativePtrArray implicitMods
+  field UInt16 IncubatorKills
+  field bool Identified
+  field byte FracturedModsCount
+  field byte IsMirrored
+  field byte IsSplit
+  field byte IsUsable
+  field byte MemoryStrands
+  field int AlternateQualityValue
+  field int HumanStats
+  field int ItemLevel
+  field int ItemModRecordSize
+  field int ItemRarity
+  field int NameOffset
+  field int NameRecordSize
+  field int RequiredLevel
+  field int StatRecordSize
+  field long AlternativeQualityTypePtr
+  field long IncubatorPtr
+  field long ModsComponentStatsPtr
+  method int GetHashCode()
+
+=== GameOffsets.ModsComponentStatsOffsets ===
+  field StdVector CraftedStatsArray
+  field StdVector CrucibleStatsArray
+  field StdVector EnchantedStatsArray
+  field StdVector ExplicitStatsArray
+  field StdVector FracturedStatsArray
+  field StdVector ImplicitStatsArray
+
+=== GameOffsets.ModsRecordOffsets ===
+  field Int16 Hash
+  field UInt32 Hash32
+  field ValueTuple`2<long,long> Group
+  field Vector2i Stat1Range
+  field Vector2i Stat2Range
+  field Vector2i Stat3Range
+  field Vector2i Stat4Range
+  field Vector2i Stat5Range
+  field Vector2i Stat6Range
+  field Vector2i Stat7Range
+  field Vector2i Stat8Range
+  field byte IsEssence
+  field int AffixType
+  field int BuffValue
+  field int Domain
+  field int InfluenceTypes
+  field int MinLevel
+  field int TagChances
+  field long BuffDefinitions
+  field long BuffDefinitionsPtr
+  field long KeyPtr
+  field long Something
+  field long Stat1Ptr
+  field long Stat2Ptr
+  field long Stat3Ptr
+  field long Stat4Ptr
+  field long Stat5Ptr
+  field long Stat6Ptr
+  field long Stat7Ptr
+  field long Stat8Ptr
+  field long Tags
+  field long Tier
+  field long TypePtr
+  field long UserFriendlyName
+  field long ta
+  field long tc
+  field long tgcCount
+  field long tgcPtr
+
+=== GameOffsets.Native.MinMaxStruct ===
+  field int Max
+  field int Min
+
+=== GameOffsets.Native.NativeHashNode ===
+  field byte IsNull
+  field int Key
+  field long Next
+  field long Previous
+  field long Root
+  field long Value1
+  method string ToString()
+
+=== GameOffsets.Native.NativeListNode ===
+  field int Value
+  field long Next
+  field long Prev
+  field long Ptr1_Unused
+  field long Ptr2_Key
+
+=== GameOffsets.Native.NativeListNodeComponent ===
+  field int ComponentList
+  field long Next
+  field long Prev
+  field long String
+  method string ToString()
+
+=== GameOffsets.Native.NativePtrArray ===
+  field long End
+  field long First
+  field long Last
+  method bool Equals(NativePtrArray)
+  method bool Equals(object)
+  method int GetHashCode()
+  method long ElementCount()
+  method long ElementCount(int)
+  method string ToString()
+  prop int Capacity
+  prop long Size
+
+=== GameOffsets.Native.NativeUtf16Text ===
+  field long Buffer
+  field long Length
+  field long LengthWithNullTerminator
+  field long Reserved8Bytes
+  prop long ByteLength
+  prop string CacheString
+
+=== GameOffsets.Native.NativeUtf8Text ===
+  field int Length
+  field int LengthWithNullTerminator
+  field long Buffer
+  field long Reserved8Bytes
+  prop string CacheString
+
+=== GameOffsets.Native.StdList ===
+  field IntPtr Head
+  field UInt64 Size
+
+=== GameOffsets.Native.StdListNode ===
+  field IntPtr Next
+  field IntPtr Previous
+
+=== GameOffsets.Native.StdListNode`1 ===
+  field !0 Data
+  field IntPtr Next
+  field IntPtr Previous
+
+=== GameOffsets.Native.StdMap ===
+  field long RootNodePtr
+
+=== GameOffsets.Native.StdMapNode ===
+  field long LeftSubNodePtr
+  field long ParentNodePtr
+  field long RightSubNodePtr
+
+=== GameOffsets.Native.StdMapWithVector ===
+  field StdVector ItemsByHash
+  field int ItemCount
+  field long RootNodePtr
+
+=== GameOffsets.Native.StdVector ===
+  field long End
+  field long First
+  field long Last
+  method long ElementCount()
+  method long TotalElements(int)
+  method string ToString()
+
+=== GameOffsets.Native.UnorderedMap ===
+  field StdVector Buckets
+  field UInt64 BucketIndexMask
+  field long InvalidBucketPtr
+
+=== GameOffsets.Native.UnorderedMapBucket ===
+  field long FirstNodePtr
+  field long LastNodePtr
+
+=== GameOffsets.Native.UnorderedMapNode`2 ===
+  field !0 Key
+  field !1 Value
+  field long NextNodePtr
+  field long PreviousNodePtr
+
+=== GameOffsets.Native.Vector2i ===
+  field int X
+  field int Y
+  method Vector2 ToVector2()
+  method Vector2 ToVector2Num()
+  method Vector2 op_Implicit(Vector2i)
+  method Vector2i Max(Vector2i, Vector2i)
+  method Vector2i Min(Vector2i, Vector2i)
+  method Vector2i Multiply(Vector2i, Vector2i)
+  method Vector2i Normalized()
+  method Vector2i op_Addition(Vector2i, Vector2i)
+  method Vector2i op_Division(Vector2i, Vector2i)
+  method Vector2i op_Division(Vector2i, int)
+  method Vector2i op_Multiply(Vector2i, Vector2i)
+  method Vector2i op_Multiply(Vector2i, float)
+  method Vector2i op_Multiply(Vector2i, int)
+  method Vector2i op_Subtraction(Vector2i, Vector2i)
+  method Vector2i op_UnaryNegation(Vector2i)
+  method Vector3 ToVector3()
+  method bool Equals(Vector2i)
+  method bool Equals(object)
+  method bool Equals(ref Vector2i)
+  method bool Equals(ref Vector2i, ref Vector2i)
+  method bool op_Equality(Vector2i, Vector2i)
+  method bool op_Inequality(Vector2i, Vector2i)
+  method float DistanceF(Vector2i)
+  method float DistanceF(ref Vector2i, ref Vector2i)
+  method int Distance(Vector2i)
+  method int Distance(ref Vector2i)
+  method int Distance(ref Vector2i, ref Vector2i)
+  method int DistanceSqr(Vector2i)
+  method int DistanceSqr(ref Vector2i)
+  method int DistanceSqr(ref Vector2i, ref Vector2i)
+  method int Dot(Vector2i, Vector2i)
+  method int GetHashCode()
+  method int Length()
+  method int LengthSqr()
+  method string ToString()
+  method void .ctor(int, int)
+  method void Add(ref Vector2i, ref Vector2i, ref Vector2i)
+  method void Divide(ref Vector2i, float, ref Vector2i)
+  method void Divide(ref Vector2i, ref Vector2i, ref Vector2i)
+  method void GetDirection(ref Vector2i, ref Vector2i, ref Vector2i)
+  method void Max(ref Vector2i, ref Vector2i, ref Vector2i)
+  method void Min(ref Vector2i, ref Vector2i, ref Vector2i)
+  method void Multiply(ref Vector2i, float, ref Vector2i)
+  method void Multiply(ref Vector2i, ref Vector2i, ref Vector2i)
+  method void Normalize()
+  method void Subtract(ref Vector2i, ref Vector2i, ref Vector2i)
+  prop Vector2i One
+  prop Vector2i Zero
+
+=== GameOffsets.NormalInventoryItemOffsets ===
+  field int Height
+  field int Width
+  field long Item
+
+=== GameOffsets.ObjectHeaderOffsets ===
+  field long ComponentLookUpPtr
+  field long MainObject
+  field long Name
+  method string ToString()
+
+=== GameOffsets.ObjectMagicPropertiesOffsets ===
+  field NativePtrArray Mods
+  field int Rarity
+
+=== GameOffsets.Objects.GameStateOffsets ===
+  field StdVector CurrentStatePtr
+  field long State0
+  field long State1
+  field long State10
+  field long State11
+  field long State2
+  field long State3
+  field long State4
+  field long State5
+  field long State6
+  field long State7
+  field long State8
+  field long State9
+
+=== GameOffsets.Objects.StateInternalStructure ===
+  field IntPtr StatePtr
+  field byte StateEnumToName
+
+=== GameOffsets.Offsets ===
+  field Offsets RenderComponentOffsetsBounds
+  field Offsets RenderComponentOffsetsHeight
+  field Offsets RenderComponentOffsetsName
+  field Offsets RenderComponentOffsetsPos
+  field Offsets RenderComponentOffsetsRotation
+  field int value__
+
+=== GameOffsets.PathEntityOffsets ===
+  field StringPtr Path
+  field long Length
+
+=== GameOffsets.PathEntityOffsets+StringPtr ===
+  field long Ptr
+
+=== GameOffsets.PathfindingComponentOffsets ===
+  field Vector2i WantMoveToPosition
+  field float StayTime
+  field int DestinationNodes
+  field int PathNodeStart
+
+=== GameOffsets.PlayerComponentOffsets ===
+  field Buffer3`1<int> Attributes
+  field NativeUtf16Text PlayerName
+  field StdVector Flags
+  field UInt32 Xp
+  field byte Level
+  field byte PantheonMajor
+  field byte PantheonMinor
+  field long HideoutPtr
+
+=== GameOffsets.PositionedComponentOffsets ===
+  field Vector2 PrevPosition
+  field Vector2 TravelOffset
+  field Vector2 TravelStart
+  field Vector2 WorldPosition
+  field Vector2i GridPosition
+  field Vector2i RawVelocity
+  field byte Reaction
+  field float Rotation
+  field float Scale
+  field float SpeedReverseFactor
+  field float TravelProgress
+  field int Size
+  field long OwnerAddress
+
+=== GameOffsets.PurchaseWindowOffsets ===
+  field long StashTabContainerPtr
+
+=== GameOffsets.QuestStateOffsets ===
+  field byte QuestStateId
+  field long Base
+  field long QuestAddress
+  field long QuestProgressTextAddress
+  field long QuestStateTextAddress
+
+=== GameOffsets.RenderComponentOffsets ===
+  field NativeUtf16Text Name
+  field Vector3 Bounds
+  field Vector3 Pos
+  field Vector3 Rotation
+  field float Height
+
+=== GameOffsets.SanctumFloorWindowDataOffsets ===
+  field bool Flag1
+  field bool Flag2
+  field int CurrentResolve
+  field int Gold
+  field int Inspiration
+  field int MaxResolve
+  field long CurrentResolveOffset
+  field long GoldOffset
+  field long InSanctumFloorDataType1Offset
+  field long InSanctumFloorDataType2Offset
+  field long InspirationOffset
+  field long MaxResolveOffset
+  field long OutOfSanctumFloorDataOffset
+  field long RewardArrayOffset
+  field long RoomChoiceHistoryOffset
+
+=== GameOffsets.SanctumFloorWindowOffsets ===
+  field long InSanctumDataPtr
+  field long OutOfSanctumDataPtr
+
+=== GameOffsets.SanctumRewardWindowOffsets ===
+  field long RewardArrayContainer
+
+=== GameOffsets.SanctumRoomOffsets ===
+  field int FightRoomOffset
+  field int Reward1Offset
+  field int Reward2Offset
+  field int Reward3Offset
+  field int RewardRoomOffset
+  field int RewardSize
+  field int RoomEffectOffset
+  field int SanctumRoomDataInElementOffset
+
+=== GameOffsets.ServerDataArtifacts ===
+  field UInt16 ExceptionalBlackScytheArtifacts
+  field UInt16 ExceptionalBrokenCircleArtifacts
+  field UInt16 ExceptionalOrderArtifacts
+  field UInt16 ExceptionalSunArtifacts
+  field UInt16 GrandBlackScytheArtifacts
+  field UInt16 GrandBrokenCircleArtifacts
+  field UInt16 GrandOrderArtifacts
+  field UInt16 GrandSunArtifacts
+  field UInt16 GreaterBlackScytheArtifacts
+  field UInt16 GreaterBrokenCircleArtifacts
+  field UInt16 GreaterOrderArtifacts
+  field UInt16 GreaterSunArtifacts
+  field UInt16 LesserBlackScytheArtifacts
+  field UInt16 LesserBrokenCircleArtifacts
+  field UInt16 LesserOrderArtifacts
+  field UInt16 LesserSunArtifacts
+
+=== GameOffsets.ServerDataBetrayalMember ===
+  field byte Id
+
+=== GameOffsets.ServerDataMinimapIconOffsets ===
+  field Vector2i GridPosition
+
+=== GameOffsets.ServerDataOffsets ===
+  field Buffer14`1<ServerDataBetrayalMember> ActiveBetrayalMembers
+  field Buffer23`1<byte> BetrayalMemberRelationships
+  field Buffer3`1<ValueTuple`2<long,long>> AtlasTreeContainerPtrs
+  field NativePtrArray BlightLanes
+  field NativePtrArray EntityEffects
+  field NativePtrArray GuildInventories
+  field NativePtrArray NPCInventories
+  field NativePtrArray NearestPlayers
+  field NativePtrArray PlayerInventories
+  field NativeUtf16Text League
+  field NativeUtf16Text PartyLeaderName
+  field ServerDataArtifacts Artifacts
+  field SkillBarIdsStruct SkillBarIds
+  field StdMapWithVector BonusCompletedAreas
+  field StdMapWithVector CompletedAreas
+  field StdMapWithVector MavenWitnessedAreas
+  field StdVector CurrentParty
+  field StdVector GuildStashTabs
+  field StdVector InfluencedRegions
+  field StdVector MechanicHandlers
+  field StdVector MinimapIcons
+  field StdVector PlacedCurrencyOrders
+  field StdVector PlayerStashTabs
+  field UInt16 CurrentPrimalWisps
+  field UInt16 CurrentSulphiteAmount
+  field UInt16 CurrentVividWisps
+  field UInt16 CurrentWildWisps
+  field UInt16 GlobalChatChannel
+  field UInt16 LastActionId
+  field UInt16 TradeChatChannel
+  field Vector2 WorldMousePosition
+  field bool PartyDownscaleDisabled
+  field byte ActiveAtlasTreeContainerIndex
+  field byte EaterOfWorldsCounter
+  field byte MonsterLevel
+  field byte MonstersRemaining
+  field byte NetworkState
+  field byte PartyAllocationType
+  field byte PartyStatusType
+  field byte SearingExarchCounter
+  field int ATLAS_REGION_UPGRADES
+  field int AtlasPassivesListOffset
+  field int BetrayalDataOffset2
+  field int CompletedMapsCount
+  field int CurrentAzuriteAmount
+  field int DialogDepth
+  field int Gold
+  field int InstanceId
+  field int Latency
+  field int QuestFlagsOffset
+  field int Skip
+  field int TimeInGame
+  field int TimeInGame2
+  field int WaypointsUnlockStateOffset
+  field long GuildName
+  field long IngameDataPtr
+  field long KnownPlayers
+  field long MasterAreas
+  field long PlayerRelatedData
+  field long QuestFlagsPtr
+
+=== GameOffsets.ServerInventoryOffsets ===
+  field StdVector InventoryItems
+  field byte InventSlot
+  field byte InventType
+  field byte IsRequested
+  field int Columns
+  field int Rows
+  field int ServerRequestCounter
+  field long Hash
+  field long InventorySlotItemsPtr
+  field long ItemCount
+
+=== GameOffsets.ServerPlayerDataOffsets ===
+  [Obsolete: Might be gone?] field int FreePassiveSkillPointsLeft
+  field NativePtrArray PassiveJewelSocketIds
+  field NativePtrArray PassiveSkillIds
+  field byte PlayerClass
+  field int CharacterLevel
+  field int PassiveRefundPointsLeft
+  field int QuestPassiveSkillPoints
+  field int SpentAscendencyPoints
+  field int TotalAscendencyPoints
+
+=== GameOffsets.ServerStashTabOffsets ===
+  field NativeUtf16Text Name
+  field UInt16 DisplayIndex
+  field UInt32 Affinity
+  field UInt32 Color
+  field UInt32 TabType
+  field byte Flags
+  field byte InitiateFlags
+  field byte MemberFlags
+  field byte OfficerFlags
+  field int StructSize
+
+=== GameOffsets.Shortcut ===
+  field ConsoleKey MainKey
+  field ShortcutModifier Modifier
+  field ShortcutUsage Usage
+  method string ToString()
+  prop string ModifierText
+
+=== GameOffsets.ShortcutModifier ===
+  field ShortcutModifier Alt
+  field ShortcutModifier Ctrl
+  field ShortcutModifier None
+  field ShortcutModifier Shift
+  field int value__
+
+=== GameOffsets.ShortcutUsage ===
+  field ShortcutUsage ApexSentinel
+  field ShortcutUsage Atlas
+  field ShortcutUsage AtlasTree
+  field ShortcutUsage CharacterPanel
+  field ShortcutUsage Flask1
+  field ShortcutUsage Flask2
+  field ShortcutUsage Flask3
+  field ShortcutUsage Flask4
+  field ShortcutUsage Flask5
+  field ShortcutUsage InventoryPanel
+  field ShortcutUsage ItemPickup
+  field ShortcutUsage LeagueInterface
+  field ShortcutUsage LeaguePanel
+  field ShortcutUsage OptionsPanel
+  field ShortcutUsage PandemoniumSentinel
+  field ShortcutUsage Skill1
+  field ShortcutUsage Skill10
+  field ShortcutUsage Skill11
+  field ShortcutUsage Skill12
+  field ShortcutUsage Skill13
+  field ShortcutUsage Skill2
+  field ShortcutUsage Skill3
+  field ShortcutUsage Skill4
+  field ShortcutUsage Skill5
+  field ShortcutUsage Skill6
+  field ShortcutUsage Skill7
+  field ShortcutUsage Skill8
+  field ShortcutUsage Skill9
+  field ShortcutUsage SkillTree
+  field ShortcutUsage SocialPanel
+  field ShortcutUsage StalkerSentinel
+  field ShortcutUsage TempSkill1
+  field ShortcutUsage TempSkill2
+  field ShortcutUsage ToggleDebug
+  field int value__
+
+=== GameOffsets.SkillBarIdsStruct ===
+  field UInt16 SkillBar1
+  field UInt16 SkillBar10
+  field UInt16 SkillBar11
+  field UInt16 SkillBar12
+  field UInt16 SkillBar13
+  field UInt16 SkillBar2
+  field UInt16 SkillBar3
+  field UInt16 SkillBar4
+  field UInt16 SkillBar5
+  field UInt16 SkillBar6
+  field UInt16 SkillBar7
+  field UInt16 SkillBar8
+  field UInt16 SkillBar9
+
+=== GameOffsets.SkillGemOffsets ===
+  field InitObjectOffsets Head
+  field Int16 SupportGemIndex
+  field UInt32 ExperienceMaxLevel
+  field UInt32 ExperiencePrevLevel
+  field UInt32 Level
+  field UInt32 QualityType
+  field UInt32 TotalExpGained
+  field long AdvanceInformation
+
+=== GameOffsets.SocketColorList ===
+  field int Socket1Color
+  field int Socket2Color
+  field int Socket3Color
+  field int Socket4Color
+  field int Socket5Color
+  field int Socket6Color
+
+=== GameOffsets.SocketedGemList ===
+  field long Socket1GemPtr
+  field long Socket2GemPtr
+  field long Socket3GemPtr
+  field long Socket4GemPtr
+  field long Socket5GemPtr
+  field long Socket6GemPtr
+
+=== GameOffsets.SocketsComponentOffsets ===
+  field SocketColorList Sockets
+  field SocketedGemList SocketedGems
+  field StdVector LinkSizes
+
+=== GameOffsets.StashElementOffsets ===
+  field int StashTabContainerOffset2
+  field long ExitButtonPtr
+  field long StashTabContainerPtr1
+  field long StashTitlePanelPtr
+
+=== GameOffsets.StashTabContainerInventoryOffsets ===
+  field NativeUtf16Text Name
+  field long InventoryPtr
+  field long StashButtonPtr
+
+=== GameOffsets.StashTabContainerOffsets ===
+  field StdVector Stashes
+  field int VisibleStashIndex
+  field long PinStashTabListButtonPtr
+  field long TabSwitchBarPtr
+  field long ViewAllStashesButtonPtr
+
+=== GameOffsets.StateMachineComponentOffsets ===
+  field NativePtrArray StatesValues
+  field long StatesPtr
+
+=== GameOffsets.StatsComponentOffsets ===
+  field long Owner
+  field long SubStatsPtr
+
+=== GameOffsets.StrongboxChestComponentData ===
+  field byte DestroyingAfterOpen
+  field byte IsLarge
+  field byte OpenOnDamage
+  field byte Stompable
+  field long ChestsDat
+
+=== GameOffsets.SubActorSkillOffsets ===
+  field UInt16 Id
+  field UInt16 Id2
+  field byte CanBeUsedWithWeapon
+  field byte CannotBeUsed
+  field int Cooldown
+  field int SoulsPerUse
+  field int TotalUses
+  field int TotalVaalUses
+  field long EffectsPerLevelPtr
+  field long StatsPtr
+
+=== GameOffsets.SubStatsComponentOffsets ===
+  field StdVector Stats
+
+=== GameOffsets.SubTileStructure ===
+  field StdVector SubTileHeight
+
+=== GameOffsets.TargetableComponentOffsets ===
+  field bool isHighlightable
+  field bool isTargetable
+  field bool isTargeted
+
+=== GameOffsets.TerrainData ===
+  field Int16 TileHeightMultiplier
+  field NativePtrArray LayerMelee
+  field NativePtrArray LayerRanged
+  field NativePtrArray TgtArray
+  field StdVector TileDescriptions
+  field StdVector TileIndexes
+  field UInt16 NumCols
+  field UInt16 NumRows
+  field int BytesPerRow
+  field int NumTileIndexCols
+  field int NumTileIndexRows
+
+=== GameOffsets.TgtDetailStruct ===
+  field NativeUtf16Text name
+
+=== GameOffsets.TgtTileStruct ===
+  field NativeUtf16Text TgtPath
+  field long TgtDetailPtr
+
+=== GameOffsets.TileStructure ===
+  field Int16 TileHeight
+  field StdVector EntitiesList
+  field byte RotationSelector
+  field long SubTileDetailsPtr
+  field long TgtFilePtr
+
+=== GameOffsets.TooltipItemFrameElementOffsets ===
+  field bool IsAdvancedTooltipText
+  field long CopyTextPtr
+
+=== GameOffsets.TreePassiveElementOffsets ===
+  field byte CanAllocate
+  field byte CanDeallocate
+  field byte IsAllocatedForPlan
+  field long PassiveSkillPtr
+
+=== GameOffsets.Type1EnvironmentSettingsOffsets ===
+  field byte Override
+  field float Value
+  method string ToString()
+
+=== GameOffsets.Type2EnvironmentSettingsOffsets ===
+  field byte Override
+  field float Value
+  method string ToString()
+
+=== GameOffsets.Type3EnvironmentSettingsOffsets ===
+  field Vector3 Value
+  field byte Override
+  method string ToString()
+
+=== GameOffsets.Type4EnvironmentSettingsOffsets ===
+  field byte Override
+  field byte Value
+  method string ToString()
+
+=== GameOffsets.Type5EnvironmentSettingsOffsets ===
+  field byte Override
+  field byte Value
+  method string ToString()
+
+=== GameOffsets.Type6EnvironmentSettingsOffsets ===
+  field NativeUtf16Text Category
+  field NativeUtf16Text Name
+  field byte Override
+  field float Value1
+  field float Value2
+  method string ToString()
+
+=== GameOffsets.Type7PlusEnvironmentSettingsOffsets ===
+  field Vector4 Value
+  field Vector4 Value2
+  method string ToString()
+
+=== GameOffsets.UltimatumPanelOffsets ===
+  field StdVector OfferedModifiers
+  field int IsSelectedOffset
+  field int LockedVotesOffset
+  field int SelectedModifierIndex
+  field int VotesOffset
+
+=== GameOffsets.VillageInfoOffsets ===
+  field StdVector Stats
+  field StdVector Workers
+  field StdVector WorkersForSale
+  field int InitialResources
+  field int PortRequest
+  field int ShipInfo
+
+=== GameOffsets.VisibleItemLabelGroupOffsets ===
+  field StdVector Labels
+  field Vector2 GroupPosition
+
+=== GameOffsets.VisibleItemLabelOffsets ===
+  field UInt32 EntityId
+  field Vector2 PositionOffset
+  field long ElementPtr
+
+=== GameOffsets.VitalStruct ===
+  field float Regen
+  field int Current
+  field int Max
+  field int ReservedFlat
+  field int ReservedFraction
+  prop int Reserved
+  prop int Unreserved
+

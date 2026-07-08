@@ -1,0 +1,6 @@
+bin/
+obj/
+*.user
+*.suo
+.vs/
+# docs/hud_api/*.api.txt são VERSIONADOS de propósito (baseline do changelog da API do HUD)
