@@ -5,6 +5,13 @@ o mais recente no topo. Mudanças da API do HUD são rastreadas à parte via `gi
 
 ## [não lançado]
 
+### 2026-07-08 — sistema de comandos (fila + runner + HTTP local + console ImGui)
+- Núcleo transporte-agnóstico: `Commands/` (IAction, CommandContext, CommandRegistry, CommandRunner, LogBus, CommandRequest/Result). Fila thread-safe; render thread drena 1 cmd/frame (executor burro); solta teclas de risco entre comandos.
+- Transporte `Control/HttpControl`: HttpListener em 127.0.0.1:8760 (POST /cmd, GET /commands, GET /logs); enfileira e awaita o resultado (completado pela render thread). É o seam do futuro agente da VPS.
+- `Ui/DevConsole` (ImGui): input + botões + painel de log vivo — testar comandos em tempo real olhando o jogo (mesmo runner do HTTP, zero marshaling).
+- Comandos de teste: `ping` (pong) e `status` (snapshot do World). Settings: HttpEnable/HttpPort/DevConsoleShow/SmokeOverlay.
+
+
 ### 2026-07-08 — core de movimentação (Input + World)
 - `Input/UiInput` (multi-tick, zero Thread.Sleep) + `Input/Humanizer` portados e limpos (sem acoplar ao rate-limit do CX).
 - `World/PathFinder` + `World/BinaryHeap` portados do Radar (Dijkstra por campo de distância, comprovado).

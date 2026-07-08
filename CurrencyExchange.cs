@@ -1,26 +1,52 @@
 using ExileCore;
 using ExileCore.PoEMemory.MemoryObjects;
 using CurrencyExchange.World;
+using CurrencyExchange.Commands;
+using CurrencyExchange.Commands.Builtins;
+using CurrencyExchange.Control;
+using CurrencyExchange.Ui;
 using CurrencyExchange.Debug;
 
 namespace CurrencyExchange;
 
 /// <summary>
-/// Composition root FINO do plugin. Só instancia e fia os módulos (World/Navigation/Interaction) e
-/// delega — nenhuma lógica de negócio mora aqui. Premissa: executor burro; inteligência na VPS.
-///
-/// Estágio atual: SMOKE do sensing (World) via overlay read-only. Sem input ainda.
+/// Composition root FINO. Só instancia/fia os módulos e delega — nenhuma lógica de negócio aqui.
+/// Premissa: executor burro; inteligência na VPS. O sistema de comandos (fila + runner) é o coração;
+/// os transportes (console ImGui, HTTP local, futuro agente da VPS) só ENFILEIRAM no mesmo runner.
 /// </summary>
 public class CurrencyExchange : BaseSettingsPlugin<CurrencyExchangeSettings>
 {
     private readonly TerrainGrid _grid = new();
     private EntityFinder _finder;
+    private LogBus _log;
+    private CommandRegistry _registry;
+    private CommandRunner _runner;
+    private HttpControl _http;
+    private DevConsole _console;
     private SmokeOverlay _smoke;
 
     public override bool Initialise()
     {
         _finder = new EntityFinder(GameController);
+        _log = new LogBus(m => LogMessage($"[CX] {m}", 3));
         _smoke = new SmokeOverlay();
+        _console = new DevConsole();
+
+        var ctx = new CommandContext
+        {
+            Gc = GameController, Grid = _grid, Finder = _finder, Log = m => _log.Add(m),
+        };
+        _registry = new CommandRegistry();
+        _registry.Register("ping", (_, _) => new PingCommand());
+        _registry.Register("status", (c, _) => new StatusCommand(c));
+
+        _runner = new CommandRunner(_registry, ctx, _log);
+
+        if (Settings.HttpEnable)
+        {
+            _http = new HttpControl(Settings.HttpPort.Value, _runner, _registry, _log, m => _log.Add(m));
+            _http.Start();
+        }
         return true;
     }
 
@@ -32,10 +58,20 @@ public class CurrencyExchange : BaseSettingsPlugin<CurrencyExchangeSettings>
     public override void Render()
     {
         if (!Settings.Enable) return;
+
+        _runner.Advance();   // avança 1 comando/frame na render thread (executor burro) — vale mesmo fora de zona
+
+        if (Settings.DevConsoleShow)
+            _console.Draw(_runner, _registry, _log, _http?.Running ?? false, Settings.HttpPort.Value);
+
         bool inGame = false;
         try { inGame = GameController?.IngameState?.InGame == true; } catch { }
-        if (!inGame) return;
+        if (inGame && Settings.SmokeOverlay)
+            _smoke.Draw(GameController, Graphics, _grid, _finder, (m, t) => LogMessage(m, t));
+    }
 
-        _smoke.Draw(GameController, Graphics, _grid, _finder, (m, t) => LogMessage(m, t));
+    public override void OnClose()
+    {
+        _http?.Dispose();
     }
 }
