@@ -10,6 +10,7 @@ o mais recente no topo. Mudanças da API do HUD são rastreadas à parte via `gi
 - Transporte `Control/HttpControl`: HttpListener em 127.0.0.1:8760 (POST /cmd, GET /commands, GET /logs); enfileira e awaita o resultado (completado pela render thread). É o seam do futuro agente da VPS.
 - `Ui/DevConsole` (ImGui): input + botões + painel de log vivo — testar comandos em tempo real olhando o jogo (mesmo runner do HTTP, zero marshaling).
 - Comandos de teste: `ping` (pong) e `status` (snapshot do World). Settings: HttpEnable/HttpPort/DevConsoleShow/SmokeOverlay.
+- ✅ **Validado in-game** (HTTP via curl): `ping→pong`, `status`→ gridReady=true, player=(610,536), Faustus found dist=12.2 célula(620,543); log em ordem. World + comandos + HTTP OK no jogo.
 
 
 ### 2026-07-08 — core de movimentação (Input + World)
