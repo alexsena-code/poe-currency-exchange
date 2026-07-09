@@ -5,6 +5,11 @@ o mais recente no topo. Mudanças da API do HUD são rastreadas à parte via `gi
 
 ## [não lançado]
 
+### 2026-07-08 — leitura do CX (read_cx)
+- `World/CxView`: leitura tipada do CurrencyExchangePanel — par, taxa de mercado, BOOK dos 2 lados (CurrencyExchangeStock Give/Get/ListedCount), e ordens do jogador com **idade nativa (CreationDate)**, fill (orig-atual) e **preço competindo (Competing*RatioPart → undercut)**. Sensing puro.
+- Comando `read_cx` (snapshot p/ a VPS decidir). Docs curadas atualizadas (usage/modules).
+
+
 ### 2026-07-08 — movimento + interação (goto / open_cx) + disciplina de docs
 - `Navigation/Mover`: anda até entidade por pathfinding via UiInput (SEM Thread.Sleep — o PathNavigator antigo tinha); anti-trava com Pathfinding.IsMoving; snap do alvo pra célula walkable; gate anti-engasgo.
 - `Interaction/NpcInteractor`: compõe o Mover + Ctrl+click no `Render.InteractCenterNum` (abre CX direto) + fallback menu por texto; verify pola `CurrencyExchangePanel.IsVisible`.

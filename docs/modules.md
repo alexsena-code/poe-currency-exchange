@@ -16,6 +16,7 @@ reusar. Atualizar ao adicionar/mudar um módulo. (API do HUD que usamos: `exilea
 | `TerrainGrid` | grid walkable + pathfinding facade | `Ensure(gc)`, `Invalidate()`, `Ready`, static `PlayerGrid(gc)`, static `EntityGrid(ent,out cell)`, `EnsureField(target)`, `Path(start)`, `Walkable(cell)`, `SnapToWalkable(cell)`, static `PlayerMoving(gc)`, `CellToScreen(gc,cell)` |
 | `PathFinder` | Dijkstra por campo de distância (do Radar) | `RunFirstScan`, `HasField`, `FindPath`, `IsPathable` |
 | `BinaryHeap<K,V>` | min-heap do Dijkstra | `Add`, `TryRemoveTop` |
+| `CxView` (static) | leitura tipada do CurrencyExchangePanel (par, taxa, book 2 lados, ordens c/ idade/fill/undercut) | `Panel(gc)`, `IsOpen(gc)`, `Snapshot(gc)`, `ReadOrders(panel)` |
 
 ## Commands/ — núcleo do executor (transporte-agnóstico)
 | Tipo | Responsabilidade | Membros públicos |
@@ -28,6 +29,7 @@ reusar. Atualizar ao adicionar/mudar um módulo. (API do HUD que usamos: `exilea
 | `CommandRunner` | fila + drena 1/frame (executor burro) | `Enqueue(req)`, `Advance()`, `CurrentName`, `Pending` |
 | `Builtins/PingCommand` | teste do loop | `ping` → "pong" |
 | `Builtins/StatusCommand` | snapshot do World | `status` → gridReady/player/moving/faustus |
+| `Builtins/ReadCxCommand` | snapshot tipado do CX (via CxView) | `read_cx` → pair/marketRate/book/myOrders |
 
 ## Navigation/ — mover-se
 | Tipo | Responsabilidade | Membros públicos |

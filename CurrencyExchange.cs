@@ -44,6 +44,7 @@ public class CurrencyExchange : BaseSettingsPlugin<CurrencyExchangeSettings>
         // goto <path>: anda até a entidade (default Faustus). open_cx: anda + Ctrl+click abre o CX (fallback menu).
         _registry.Register("goto", (c, args) => new Mover(c, args.Length > 0 ? args[0] : "Faustus"));
         _registry.Register("open_cx", (c, _) => new NpcInteractor(c, "Faustus", () => CxOpen(c.Gc), "Currency Exchange"));
+        _registry.Register("read_cx", (c, _) => new ReadCxCommand(c));   // snapshot tipado do painel (sensing)
 
         _runner = new CommandRunner(_registry, ctx, _log);
 

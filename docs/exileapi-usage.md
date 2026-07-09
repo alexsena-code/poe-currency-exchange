@@ -46,6 +46,22 @@ com a razão e as pegadinhas. **Sempre consultar `hud_api/` antes de assumir que
 `DrawText(string, Vector2, Color)` é o **não-obsoleto**. `DrawFrame/DrawBox/DrawLine` são `[Obsolete]`
 (e `DrawFrame` nem aceita `RectangleF`) → evitar; marcar pontos com `DrawText`.
 
+## Currency Exchange (leitura do painel) — `ExileCore.PoEMemory.Elements.Village`
+| Membro | Uso | Nota |
+|---|---|---|
+| `CurrencyExchangePanel.OfferedItemType` / `WantedItemType` (`BaseItemType`) | par selecionado (I Have / I Want) | `.BaseName` |
+| `.MarketRateGet` / `.MarketRateGive` (`Int16`) | taxa de mercado do par | |
+| `.WantedItemStock` / `.OfferedItemStock` (`List<CurrencyExchangeStock>`) | **o BOOK** dos 2 lados | |
+| `.Orders` (`List<PlacedCurrencyExchangeOrder>`) | ordens do jogador | `Count` = contador (não há prop de "X/Y") |
+| `.OrderElements` | cards da UI (geometria) | pro clique de cancel/collect (futuro) |
+| `.CurrencyPicker`, `.WantedItemCountInput`, `.OfferedItemCountInput`, `.RatioElement` | postar ordem (futuro) | |
+| `CurrencyExchangeStock` → `Give` / `Get` / `ListedCount` (int) | 1 rung do book (dá Give → recebe Get, N listados) | preço = Give/Get ou Get/Give conforme o lado |
+| `PlacedCurrencyExchangeOrder` → `Offered/WantedItemType`, `Offered/WantedItemRatioPart`, `OfferedItemStackSize`, `OriginalOfferedItemStackSize` | par, ratio a:b, fill (orig-atual) | |
+| ... `IsCompleted` / `IsCanceled` | status | ordem fechada segue ocupando slot até coletar |
+| ... **`CreationDate`** (`DateTimeOffset`) | **idade da ordem NATIVA** | antes rastreávamos firstSeen à mão |
+| ... **`CompetingOfferedItemRatioPart` / `CompetingWantedItemRatioPart`** | **preço competindo** → undercut de graça | |
+| ... `PlayerOrderId`, `GoldCost`, `*ItemHash` | id/custo | |
+
 ## Chat (futuro `/hideout`)
 `IngameUi ... ChatPanel.ChatInputElement` — digitar com foco verificado (padrão do campo de busca).
 
