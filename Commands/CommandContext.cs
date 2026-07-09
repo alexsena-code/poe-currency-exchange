@@ -1,4 +1,5 @@
 using System;
+using System.Windows.Forms;
 using ExileCore;
 using CurrencyExchange.World;
 
@@ -15,4 +16,8 @@ public sealed class CommandContext
     public TerrainGrid Grid { get; init; }
     public EntityFinder Finder { get; init; }
     public Action<string> Log { get; init; }
+
+    /// <summary>Tecla "Move Only" do jogo (andar sem atacar/interagir com o caminho). O operador precisa
+    /// bindar essa tecla em Options → Input → Move Only. Default R.</summary>
+    public Keys MoveKey { get; init; } = Keys.R;
 }

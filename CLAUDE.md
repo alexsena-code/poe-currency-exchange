@@ -28,11 +28,22 @@ aproveitando o conhecimento de comportamento do jogo, não o código antigo.
 7. **Ordem cancelada segue ocupando slot** até coletar; o contador "X/Y" só cai na coleta.
 8. **Update do jogo/HUD quebra offsets** — ver checklist abaixo.
 
-## Índice da API + changelog da API do HUD
+## Documentação (disciplina — ANTES de codar, evita duplicação)
 
-`docs/hud_api/*.api.txt` é a superfície pública de `ExileCore.dll`/`GameOffsets.dll` (gerado por
-`tools/hud_api_dump.sh`, via metadados — não carrega tipos). **Consulte-o antes de assumir que um
-método existe** (a API não tem XML docs). Após update do HUD: rode o script e `git diff docs/hud_api`.
+O repo antigo afundou em duplicação (heurística do picker 2×, contador 3×, clique-2-passos 5×…).
+Regra pra não repetir: **consultar os docs ANTES de criar; anotar DEPOIS de adicionar.**
+
+1. **`docs/hud_api/*.api.txt`** — superfície pública COMPLETA de `ExileCore.dll`/`GameOffsets.dll`
+   (gerado por `tools/hud_api_dump.sh`, via metadados). Consultar antes de assumir que um método existe
+   (a API não tem XML docs). Após update do HUD: rerodar + `git diff docs/hud_api` = changelog da API.
+2. **`docs/exileapi-usage.md`** — índice CURADO do que USAMOS da API (com razão + pegadinhas +
+   obsoletos a evitar). Ao usar um membro novo da API, **anotar aqui**.
+3. **`docs/modules.md`** — inventário dos NOSSOS módulos/wrappers (classe → responsabilidade →
+   métodos públicos). **Checar aqui antes de escrever um helper novo** (já existe um clique/foco/
+   varredura? use-o). Ao adicionar/mudar um módulo, **atualizar aqui**.
+
+Fluxo ao criar algo: (a) `modules.md` já tem? reusa. (b) precisa de API? confirma em `hud_api/` e anota
+em `usage.md`. (c) escreve o módulo. (d) atualiza `modules.md` + `CHANGELOG.md`.
 
 ## Workflow
 

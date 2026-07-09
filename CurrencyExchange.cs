@@ -4,6 +4,8 @@ using CurrencyExchange.World;
 using CurrencyExchange.Commands;
 using CurrencyExchange.Commands.Builtins;
 using CurrencyExchange.Control;
+using CurrencyExchange.Navigation;
+using CurrencyExchange.Interaction;
 using CurrencyExchange.Ui;
 using CurrencyExchange.Debug;
 
@@ -39,6 +41,9 @@ public class CurrencyExchange : BaseSettingsPlugin<CurrencyExchangeSettings>
         _registry = new CommandRegistry();
         _registry.Register("ping", (_, _) => new PingCommand());
         _registry.Register("status", (c, _) => new StatusCommand(c));
+        // goto <path>: anda até a entidade (default Faustus). open_cx: anda + Ctrl+click abre o CX (fallback menu).
+        _registry.Register("goto", (c, args) => new Mover(c, args.Length > 0 ? args[0] : "Faustus"));
+        _registry.Register("open_cx", (c, _) => new NpcInteractor(c, "Faustus", () => CxOpen(c.Gc), "Currency Exchange"));
 
         _runner = new CommandRunner(_registry, ctx, _log);
 
@@ -68,6 +73,13 @@ public class CurrencyExchange : BaseSettingsPlugin<CurrencyExchangeSettings>
         try { inGame = GameController?.IngameState?.InGame == true; } catch { }
         if (inGame && Settings.SmokeOverlay)
             _smoke.Draw(GameController, Graphics, _grid, _finder, (m, t) => LogMessage(m, t));
+    }
+
+    /// <summary>CX aberto? (fonte tipada). Usado pelo verify do open_cx.</summary>
+    private static bool CxOpen(GameController gc)
+    {
+        try { var p = gc?.IngameState?.IngameUi?.CurrencyExchangePanel; return p != null && p.IsVisible; }
+        catch { return false; }
     }
 
     public override void OnClose()

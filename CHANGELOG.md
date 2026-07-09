@@ -5,6 +5,13 @@ o mais recente no topo. Mudanças da API do HUD são rastreadas à parte via `gi
 
 ## [não lançado]
 
+### 2026-07-08 — movimento + interação (goto / open_cx) + disciplina de docs
+- `Navigation/Mover`: anda até entidade por pathfinding via UiInput (SEM Thread.Sleep — o PathNavigator antigo tinha); anti-trava com Pathfinding.IsMoving; snap do alvo pra célula walkable; gate anti-engasgo.
+- `Interaction/NpcInteractor`: compõe o Mover + Ctrl+click no `Render.InteractCenterNum` (abre CX direto) + fallback menu por texto; verify pola `CurrencyExchangePanel.IsVisible`.
+- Comandos novos: `goto <path>` (default Faustus), `open_cx`. `CommandContext.MoveKey` (default R — operador precisa bindar "Move Only").
+- Docs: `docs/exileapi-usage.md` (API curada que usamos) + `docs/modules.md` (inventário de wrappers, anti-duplicação); disciplina registrada no CLAUDE.md.
+
+
 ### 2026-07-08 — sistema de comandos (fila + runner + HTTP local + console ImGui)
 - Núcleo transporte-agnóstico: `Commands/` (IAction, CommandContext, CommandRegistry, CommandRunner, LogBus, CommandRequest/Result). Fila thread-safe; render thread drena 1 cmd/frame (executor burro); solta teclas de risco entre comandos.
 - Transporte `Control/HttpControl`: HttpListener em 127.0.0.1:8760 (POST /cmd, GET /commands, GET /logs); enfileira e awaita o resultado (completado pela render thread). É o seam do futuro agente da VPS.
