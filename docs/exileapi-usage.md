@@ -65,12 +65,15 @@ com a razão e as pegadinhas. **Sempre consultar `hud_api/` antes de assumir que
 ## Chat (futuro `/hideout`)
 `IngameUi ... ChatPanel.ChatInputElement` — digitar com foco verificado (padrão do campo de busca).
 
-## Ciclo de vida do plugin / rodar FORA do jogo
-O ExileCore pula `Tick`/`Render` de plugin quando não está no jogo:
-`if (!GameController.InGame && !plugin.Force) continue;`. Pra rodar **desde a tela de login**
-(nosso caso — sensor durante o login), setar **`Force = true`** (prop de `IPlugin`/`BaseSettingsPlugin`)
-no `Initialise`. Flag OFICIAL do framework → resiliente a update (sem fork do ExileCore).
-`Initialise` roda no boot do HUD (compila plugins no boot), não é gated por InGame.
+## Ciclo de vida do plugin / rodar FORA do jogo (2 gates!)
+1. `Tick`/`Render` são pulados fora do jogo: `if (!GameController.InGame && !plugin.Force) continue;`
+   → `Force = true` (prop de `IPlugin`/`BaseSettingsPlugin`) libera a execução em MENUS.
+2. **MAS o plugin nem CARREGA antes de estar num personagem/área**: `GameController..ctor` lança
+   `"CurrentArea is null. Fully log into your account and character"` no `Core.Inject()`, que re-tenta
+   até você entrar num mapa. Esse é o gate REAL — `Force` não o contorna.
+→ Logo, **não dá pra sensear login/char-select pelo plugin**. Pra isso, ler `TheGame.InGame` por FORA
+via `launcher/cxstate` (reusa o `ExileCore.dll`: constrói `Memory` + `TheGame` com `GameController=null`,
+lê estado antes do jogo, sem admin/fork). `Force` fica só pra rodar o plugin em menus depois de carregado.
 
 ## Obsoletos a EVITAR (já mordemos)
 `Positioned.GridX/GridY/GridPos`, `Graphics.DrawFrame/DrawBox/DrawLine`, `Camera.SetCursorPositionSmooth`,

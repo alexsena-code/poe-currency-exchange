@@ -29,10 +29,11 @@ public class CurrencyExchange : BaseSettingsPlugin<CurrencyExchangeSettings>
 
     public override bool Initialise()
     {
-        // FORCE: o ExileCore pula Tick/Render de plugin fora do jogo (`if (!InGame && !plugin.Force) continue;`)
-        // — setando Force=true, nosso plugin roda DESDE A TELA DE LOGIN. Assim o canal HTTP + o game_state
-        // ficam ativos durante o login (o plugin vira o sensor do launcher), sem leitor de memória nem fork
-        // do ExileCore. Flag OFICIAL do framework → resiliente a updates.
+        // FORCE: o ExileCore pula Tick/Render de plugin fora do jogo (`if (!InGame && !plugin.Force) continue;`).
+        // Com Force=true o plugin roda em estados de MENU — MAS só DEPOIS de carregado. O plugin NÃO carrega
+        // antes de estar num personagem/área: `GameController..ctor` lança "CurrentArea is null" (a trava real).
+        // Então NÃO dá pra sensear login/char-select pelo plugin — quem faz isso é o `launcher/cxstate` (externo,
+        // reusa o ExileCore.dll pra ler TheGame.InGame sem GameController). Force fica só pra rodar em menus.
         Force = true;
 
         _finder = new EntityFinder(GameController);

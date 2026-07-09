@@ -5,6 +5,12 @@ o mais recente no topo. Mudanças da API do HUD são rastreadas à parte via `gi
 
 ## [não lançado]
 
+### 2026-07-09 — leitor de estado por memória (cxstate) + correção do Force
+- **`launcher/cxstate`** (C#): lê `TheGame.InGame`/loading/areaHash REUSANDO o `ExileCore.dll` — constrói `Memory` (attach+pattern-scan, ctor por reflection) + `TheGame` com `GameController=null`, contornando a trava `CurrentArea is null`. Lê o estado ANTES de entrar no jogo (login/char-select), sem admin, sem fork, offsets auto-sincronizados com o HUD. Validado in-game: char-select→inGame:false, in-game→inGame:true (single-shot ~0,5s; `state.wait_in_game` polla).
+- **Correção**: o `Force=true` NÃO faz o plugin rodar no login (o gate real é o `GameController..ctor` exigindo CurrentArea — o plugin nem carrega antes de um personagem). Docs corrigidos; Force fica só p/ rodar em menus depois de carregado.
+- Launcher: descartado o dumper de offsets (caminho de reimplementar memória) — o cxstate reusa o ExileCore.
+
+
 ### 2026-07-09 — plugin roda desde o login (Force) + sensor game_state
 - **`Force = true`** no Initialise: o ExileCore pula Tick/Render fora do jogo (`if (!InGame && !plugin.Force) continue;`); com Force o plugin roda DESDE A TELA DE LOGIN → HTTP + runner ativos no login, sem leitor de memória nem fork do ExileCore (flag oficial, resiliente a update). Doc em exileapi-usage.md.
 - Comando `game_state` (inGame/área): sensor pro launcher pollar e saber quando logou/entrou — substitui timing cego.
