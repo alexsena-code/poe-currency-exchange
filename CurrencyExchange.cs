@@ -29,6 +29,12 @@ public class CurrencyExchange : BaseSettingsPlugin<CurrencyExchangeSettings>
 
     public override bool Initialise()
     {
+        // FORCE: o ExileCore pula Tick/Render de plugin fora do jogo (`if (!InGame && !plugin.Force) continue;`)
+        // — setando Force=true, nosso plugin roda DESDE A TELA DE LOGIN. Assim o canal HTTP + o game_state
+        // ficam ativos durante o login (o plugin vira o sensor do launcher), sem leitor de memória nem fork
+        // do ExileCore. Flag OFICIAL do framework → resiliente a updates.
+        Force = true;
+
         _finder = new EntityFinder(GameController);
         _log = new LogBus(m => LogMessage($"[CX] {m}", 3));
         _smoke = new SmokeOverlay();
@@ -45,6 +51,7 @@ public class CurrencyExchange : BaseSettingsPlugin<CurrencyExchangeSettings>
         _registry.Register("goto", (c, args) => new Mover(c, args.Length > 0 ? args[0] : "Faustus"));
         _registry.Register("open_cx", (c, _) => new NpcInteractor(c, "Faustus", () => CxOpen(c.Gc), "Currency Exchange"));
         _registry.Register("read_cx", (c, _) => new ReadCxCommand(c));   // snapshot tipado do painel (sensing)
+        _registry.Register("game_state", (c, _) => new GameStateCommand(c));   // sensor p/ o launcher pollar
 
         _runner = new CommandRunner(_registry, ctx, _log);
 

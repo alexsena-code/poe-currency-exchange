@@ -30,6 +30,7 @@ reusar. Atualizar ao adicionar/mudar um módulo. (API do HUD que usamos: `exilea
 | `Builtins/PingCommand` | teste do loop | `ping` → "pong" |
 | `Builtins/StatusCommand` | snapshot do World | `status` → gridReady/player/moving/faustus |
 | `Builtins/ReadCxCommand` | snapshot tipado do CX (via CxView) | `read_cx` → pair/marketRate/book/myOrders |
+| `Builtins/GameStateCommand` | sensor de estado (inGame/área) p/ o launcher pollar durante o login | `game_state` → inGame/area/hideout/town |
 
 ## Navigation/ — mover-se
 | Tipo | Responsabilidade | Membros públicos |

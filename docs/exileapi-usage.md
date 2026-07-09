@@ -65,6 +65,13 @@ com a razão e as pegadinhas. **Sempre consultar `hud_api/` antes de assumir que
 ## Chat (futuro `/hideout`)
 `IngameUi ... ChatPanel.ChatInputElement` — digitar com foco verificado (padrão do campo de busca).
 
+## Ciclo de vida do plugin / rodar FORA do jogo
+O ExileCore pula `Tick`/`Render` de plugin quando não está no jogo:
+`if (!GameController.InGame && !plugin.Force) continue;`. Pra rodar **desde a tela de login**
+(nosso caso — sensor durante o login), setar **`Force = true`** (prop de `IPlugin`/`BaseSettingsPlugin`)
+no `Initialise`. Flag OFICIAL do framework → resiliente a update (sem fork do ExileCore).
+`Initialise` roda no boot do HUD (compila plugins no boot), não é gated por InGame.
+
 ## Obsoletos a EVITAR (já mordemos)
 `Positioned.GridX/GridY/GridPos`, `Graphics.DrawFrame/DrawBox/DrawLine`, `Camera.SetCursorPositionSmooth`,
 `Render.Pos/Bounds`.

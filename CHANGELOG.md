@@ -5,6 +5,12 @@ o mais recente no topo. Mudanças da API do HUD são rastreadas à parte via `gi
 
 ## [não lançado]
 
+### 2026-07-09 — plugin roda desde o login (Force) + sensor game_state
+- **`Force = true`** no Initialise: o ExileCore pula Tick/Render fora do jogo (`if (!InGame && !plugin.Force) continue;`); com Force o plugin roda DESDE A TELA DE LOGIN → HTTP + runner ativos no login, sem leitor de memória nem fork do ExileCore (flag oficial, resiliente a update). Doc em exileapi-usage.md.
+- Comando `game_state` (inGame/área): sensor pro launcher pollar e saber quando logou/entrou — substitui timing cego.
+- Launcher: descartado o caminho de leitor de memória nativo (dumper de offsets removido) — o Force resolve.
+
+
 ### 2026-07-08 — leitura do CX (read_cx)
 - `World/CxView`: leitura tipada do CurrencyExchangePanel — par, taxa de mercado, BOOK dos 2 lados (CurrencyExchangeStock Give/Get/ListedCount), e ordens do jogador com **idade nativa (CreationDate)**, fill (orig-atual) e **preço competindo (Competing*RatioPart → undercut)**. Sensing puro.
 - Comando `read_cx` (snapshot p/ a VPS decidir). Docs curadas atualizadas (usage/modules).
