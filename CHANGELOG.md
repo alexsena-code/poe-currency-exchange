@@ -10,6 +10,7 @@ o mais recente no topo. Mudanças da API do HUD são rastreadas à parte via `gi
 - `Interaction/NpcInteractor`: compõe o Mover + Ctrl+click no `Render.InteractCenterNum` (abre CX direto) + fallback menu por texto; verify pola `CurrencyExchangePanel.IsVisible`.
 - Comandos novos: `goto <path>` (default Faustus), `open_cx`. `CommandContext.MoveKey` (default R — operador precisa bindar "Move Only").
 - Docs: `docs/exileapi-usage.md` (API curada que usamos) + `docs/modules.md` (inventário de wrappers, anti-duplicação); disciplina registrada no CLAUDE.md.
+- ✅ **Validado in-game** (HTTP): `goto Faustus` andou (player (610,536)→(614,542), 9 cliques, chegou a 6 células); `open_cx` abriu o CX (1 Ctrl+click, verify por CurrencyExchangePanel.IsVisible). Movimento + interação REAIS funcionando.
 
 
 ### 2026-07-08 — sistema de comandos (fila + runner + HTTP local + console ImGui)
